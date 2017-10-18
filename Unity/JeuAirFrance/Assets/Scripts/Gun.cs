@@ -28,19 +28,13 @@ public class Gun : MonoBehaviour
 			anim.SetTrigger("Shoot");
 			GetComponent<AudioSource>().Play();
 
-			// If the player is facing right...
-			if(playerCtrl.facingRight)
-			{
-				// ... instantiate the rocket facing right and set it's velocity to the right. 
-				Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
-				bulletInstance.velocity = new Vector2(speed, 0);
-			}
-			else
-			{
-				// Otherwise instantiate the rocket facing left and set it's velocity to the left.
-				Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0,0,180f))) as Rigidbody2D;
-				bulletInstance.velocity = new Vector2(-speed, 0);
-			}
+            Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 dir = (target - transform.position).normalized;
+
+            float angle = Mathf.Atan2(dir.y, dir.x) * 180 /3.14159f;
+            Debug.Log(dir.ToString() + " alpha = " + angle.ToString());
+            Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0, 0, angle))) as Rigidbody2D;
+            bulletInstance.velocity = new Vector2(dir.x * speed, dir.y * speed);
 		}
 	}
 }
