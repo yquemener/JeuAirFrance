@@ -1,0 +1,385 @@
+fileFormatVersion: 2
+guid: 938d19b05ae71ad49b35a39550626239
+timeCreated: 1508432204
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Tiles_Reddit_game_grass_rounded_0
+    21300002: top1
+    21300004: Tiles_Reddit_game_grass_rounded_2
+    21300006: Tiles_Reddit_game_grass_rounded_3
+    21300008: top2
+    21300010: Tiles_Reddit_game_grass_rounded_5
+    21300012: Tiles_Reddit_game_grass_rounded_6
+    21300014: top3
+    21300016: Tiles_Reddit_game_grass_rounded_8
+    21300018: Tiles_Reddit_game_grass_rounded_9
+    21300020: top4
+    21300022: Tiles_Reddit_game_grass_rounded_11
+    21300024: Tiles_Reddit_game_grass_rounded_12
+    21300026: in1
+    21300028: Tiles_Reddit_game_grass_rounded_14
+    21300030: Tiles_Reddit_game_grass_rounded_15
+    21300032: in2
+    21300034: Tiles_Reddit_game_grass_rounded_17
+    21300036: Tiles_Reddit_game_grass_rounded_18
+    21300038: in3
+    21300040: Tiles_Reddit_game_grass_rounded_20
+    21300042: top1
+    21300044: top2
+    21300046: top3
+    21300048: top4
+    21300050: Tiles_Reddit_game_grass_rounded_13
+    21300052: Tiles_Reddit_game_grass_rounded_16
+    21300054: Tiles_Reddit_game_grass_rounded_19
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_0
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 675
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: top1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 675
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_2
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 675
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_3
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 675
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: top2
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 675
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_5
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 675
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_6
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 575
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: top3
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 575
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_8
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 575
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_9
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 575
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: top4
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 575
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_11
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 575
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_12
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 375
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: in1
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 375
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_14
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 375
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_15
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 195
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: in2
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 195
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_17
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 195
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_18
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 15
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: in3
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 15
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Tiles_Reddit_game_grass_rounded_20
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 15
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9c0d440ceb47b45439864f54154b8bd8
-timeCreated: 1508392930
+timeCreated: 1508426183
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -11,6 +11,9 @@ TextureImporter:
     21300008: run01
     21300010: run02
     21300012: run03
+    21300014: jump00
+    21300016: jump01
+    21300018: jump02
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -193,6 +196,45 @@ TextureImporter:
         x: 445
         y: 405
         width: 143
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: jump00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 46
+        width: 147
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: jump01
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 46
+        width: 131
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: jump02
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 46
+        width: 130
         height: 247
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
