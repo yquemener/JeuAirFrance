@@ -1,0 +1,206 @@
+fileFormatVersion: 2
+guid: 9c0d440ceb47b45439864f54154b8bd8
+timeCreated: 1508392930
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: idle01
+    21300002: idle02
+    21300004: idle00
+    21300006: run00
+    21300008: run01
+    21300010: run02
+    21300012: run03
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: idle01
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 749
+        width: 131
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42.5, y: 84.5}
+        - {x: 26.5, y: 115.5}
+        - {x: -38.5, y: 115.5}
+        - {x: -58.5, y: 110.5}
+        - {x: -58.5, y: -21.5}
+        - {x: -51.5, y: -28.5}
+        - {x: -54.5, y: -121.5}
+        - {x: -50.5, y: -123.5}
+        - {x: -25.5, y: -123.5}
+        - {x: -23.5, y: -122.5}
+        - {x: -22.5, y: -123.5}
+        - {x: 42.5, y: -123.5}
+      - - {x: -65.5, y: -122.5}
+        - {x: -61.5, y: -122.5}
+        - {x: -59.5, y: -120.5}
+        - {x: -60.5, y: -117.5}
+        - {x: -65.5, y: -117.5}
+      - - {x: 50.5, y: 45.5}
+        - {x: 50.5, y: 44.5}
+        - {x: 52.5, y: 42.5}
+        - {x: 53.5, y: 42.5}
+        - {x: 57.5, y: 46.5}
+        - {x: 57.5, y: 48.5}
+        - {x: 54.5, y: 49.5}
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: idle02
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 749
+        width: 131
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: idle00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 749
+        width: 131
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: run00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 405
+        width: 131
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: run01
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 405
+        width: 147
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: run02
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 405
+        width: 145
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: run03
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 405
+        width: 143
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: characters
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
