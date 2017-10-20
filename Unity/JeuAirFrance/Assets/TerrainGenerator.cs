@@ -52,12 +52,17 @@ public class TerrainGenerator : MonoBehaviour {
             DestroyImmediate(go);
         }
 
+        List<GameObject> todestroy = new List<GameObject>();
         foreach (Transform t in this.transform.GetComponentsInChildren<Transform>())
         {
             if(t.gameObject.name.StartsWith("TerrainBlock"))
             {
-                DestroyImmediate(t.gameObject);
+                todestroy.Add(t.gameObject);
             }
+        }
+        foreach(GameObject go in todestroy)
+        {
+            DestroyImmediate(go);
         }
     }
 
