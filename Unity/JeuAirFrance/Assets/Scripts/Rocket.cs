@@ -48,12 +48,17 @@ public class Rocket : MonoBehaviour
 			// Destroy the rocket.
 			Destroy (gameObject);
 		}
-		// Otherwise if the player manages to shoot himself...
-		else if(col.gameObject.tag != "Player")
+        else if(col.tag == "ground")
+        {
+            OnExplode();
+            Destroy(col.gameObject);
+            Destroy(gameObject);
+        }
+        // Otherwise if the player manages to shoot himself...
+        else if(col.gameObject.tag != "Player" && col.gameObject.tag !="Zone")
 		{
 			// Instantiate the explosion and destroy the rocket.
 			OnExplode();
-            Destroy(col.gameObject);
 			Destroy (gameObject);
 		}
 	}

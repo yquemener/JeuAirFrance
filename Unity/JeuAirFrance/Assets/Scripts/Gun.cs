@@ -25,7 +25,7 @@ public class Gun : MonoBehaviour
 		if(Input.GetButtonDown("Fire1"))
 		{
 			// ... set the animator Shoot trigger parameter and play the audioclip.
-			anim.SetTrigger("Shoot");
+			//anim.SetTrigger("Shoot");
 			GetComponent<AudioSource>().Play();
 
             Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
