@@ -42,26 +42,21 @@ public class PlayerControl : MonoBehaviour
         anim.SetBool("Grounded", grounded);
 
         // If the jump button is pressed and the player is grounded then the player should jump.
-        if (Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetButtonDown("Jump") && (grounded||hanging))
         {
             jump = true;
+            hanging = false;
         }
 
         if (Input.GetButtonDown("Fire2"))
         {
             anim.SetTrigger("Knife");
-        }
-        if (Input.GetButton("Fire2"))
-        { 
             hanging = Physics2D.Linecast(transform.position, hangCheck.position, 1 << LayerMask.NameToLayer("Ground"));
         }
-        else
+        if (Input.GetButtonUp("Fire2"))
         {
             hanging = false;
-            anim.SetBool("Hanging", hanging);
         }
-
-        
     }
 
 
