@@ -53,6 +53,7 @@ public class Rocket : MonoBehaviour
 		{
 			// Instantiate the explosion and destroy the rocket.
 			OnExplode();
+            Destroy(col.gameObject);
 			Destroy (gameObject);
 		}
 	}
