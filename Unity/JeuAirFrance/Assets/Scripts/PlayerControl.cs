@@ -20,27 +20,49 @@ public class PlayerControl : MonoBehaviour
 
 	private int tauntIndex;					// The index of the taunts array indicating the most recent taunt.
 	private Transform groundCheck;			// A position marking where to check if the player is grounded.
-	private bool grounded = false;			// Whether or not the player is grounded.
-	private Animator anim;					// Reference to the player's animator component.
+    private Transform hangCheck;            // A position marking where to check if the player can plant a knife.
+    private bool grounded = false;			// Whether or not the player is grounded.
+    public bool hanging = false;          // Whether or not the player is hanging.
+    private Animator anim;					// Reference to the player's animator component.
 
 
 	void Awake()
 	{
 		// Setting up references.
 		groundCheck = transform.Find("groundCheck");
-		anim = GetComponent<Animator>();
+        hangCheck = transform.Find("hangCheck");
+        anim = GetComponent<Animator>();
 	}
 
 
 	void Update()
 	{
 		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
-		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
+		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        anim.SetBool("Grounded", grounded);
 
-		// If the jump button is pressed and the player is grounded then the player should jump.
-		if(Input.GetButtonDown("Jump") && grounded)
-			jump = true;
-	}
+        // If the jump button is pressed and the player is grounded then the player should jump.
+        if (Input.GetButtonDown("Jump") && grounded)
+        {
+            jump = true;
+        }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            anim.SetTrigger("Knife");
+        }
+        if (Input.GetButton("Fire2"))
+        { 
+            hanging = Physics2D.Linecast(transform.position, hangCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        }
+        else
+        {
+            hanging = false;
+            anim.SetBool("Hanging", hanging);
+        }
+
+        
+    }
 
 
 	void FixedUpdate ()
@@ -86,7 +108,21 @@ public class PlayerControl : MonoBehaviour
 			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
 			jump = false;
 		}
-	}
+
+        if(hanging)
+        {
+            Rigidbody2D body = GetComponent<Rigidbody2D>();
+            body.gravityScale = 0.0f;
+            body.velocity = new Vector2(0, 0);
+            //body.AddForce(-Physics.gravity*body.mass, ForceMode2D.Force);
+        }
+        else
+        {
+            Rigidbody2D body = GetComponent<Rigidbody2D>();
+            body.gravityScale = 1.0f;
+        }
+        anim.SetBool("Hanging", hanging);
+    }
 	
 	
 	void Flip ()
