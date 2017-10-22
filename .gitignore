@@ -4,6 +4,7 @@
 /Unity/*/[Bb]uild/
 /Unity/*/[Bb]uilds/
 /Unity/*/Assets/AssetStoreTools*
+/Unity/*/Assets/*_Data
 
 # Visual Studio 2015 cache directory
 /Unity/*/.vs/
