@@ -2,7 +2,9 @@
 using System.Collections;
 using Tiled;
 using Tiled.Parser;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 
 namespace Tiled.Builder {
