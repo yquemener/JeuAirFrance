@@ -26,6 +26,8 @@ namespace Tiled.Builder {
 
         public Sprite[] spriteSheet;
 
+        public GameObject Test;
+
         public Map map;
         public Map Map { get { return map; } }
 
@@ -35,6 +37,16 @@ namespace Tiled.Builder {
 
         void Update() {
             initialize();
+        }
+
+        [ContextMenu("Clear Tiles")]
+        private void clearTiles()
+        {
+            int numobjs = transform.childCount;
+            for(int i=numobjs-1;i>=0; i--)
+            {
+                DestroyImmediate(transform.GetChild(i).gameObject);
+            }
         }
 
         [ContextMenu("Create Tiles")]
