@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using UnityEngine.Tilemaps;
+using UnityEditor;
 
-public class JDRcontrol : MonoBehaviour {
+public class JDRControl : MonoBehaviour {
 
     private Animator anim;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         anim = GetComponent<Animator>();
 	}
 	

@@ -2,6 +2,7 @@
 using System.Collections;
 using Tiled;
 using Tiled.Parser;
+using System.Linq;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -18,25 +19,35 @@ namespace Tiled.Builder {
         [Tooltip("Distance between tiles")]
         public Vector2 tileSize;
 
-        [Tooltip("Path to sprite used to create tiles")]
-        public string spriteResource;
-
         [Tooltip("Prefab used for individual tiles")]
         public GameObject tilePrefab;
 
-        public Sprite[] spriteSheet;
-
-        public GameObject Test;
 
         public Map map;
         public Map Map { get { return map; } }
 
+        
+        [Tooltip("Path to sprite used to create tiles")]
+        public Texture2D tileset;
+        public Sprite[] spriteSheet;
+
+        [ContextMenu("Load Tileset")]
+        public void LoadTileset()
+        {
+            string path = AssetDatabase.GetAssetPath(tileset);
+            spriteSheet = AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>().ToArray();
+        }
+
+
+
+
+
         void Start() {
-            initialize();
+            
         }
 
         void Update() {
-            initialize();
+            
         }
 
         [ContextMenu("Clear Tiles")]
@@ -50,9 +61,10 @@ namespace Tiled.Builder {
         }
 
         [ContextMenu("Create Tiles")]
-        private void initialize() {
+        private void createTiles() {
 
-            if (map == null) {
+            if (map == null)
+            {
                 Debug.Log("Loading map data");
                 map = new TiledMapLoader(
                     new JSONMapParser())
@@ -60,13 +72,6 @@ namespace Tiled.Builder {
 
                 MapContainer.Map = map;
             }
-
-
-            createTiles();
-        }
-
-        
-        private void createTiles() {
 
             foreach (Layer layer in map.Layers) {
 
