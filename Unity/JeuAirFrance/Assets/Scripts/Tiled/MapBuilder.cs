@@ -3,6 +3,7 @@ using System.Collections;
 using Tiled;
 using Tiled.Parser;
 using System.Linq;
+using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -28,15 +29,23 @@ namespace Tiled.Builder {
 
         
         [Tooltip("Path to sprite used to create tiles")]
-        public Texture2D tileset;
+        public Texture2D[] tilesets;
         public Sprite[] spriteSheet;
 
+#if UNITY_EDITOR
         [ContextMenu("Load Tileset")]
         public void LoadTileset()
         {
-            string path = AssetDatabase.GetAssetPath(tileset);
-            spriteSheet = AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>().ToArray();
+            List<Sprite> spriteList = new List<Sprite>();
+            foreach (Texture2D tileset in tilesets)
+            {
+                string path = AssetDatabase.GetAssetPath(tileset);
+                spriteList.AddRange(AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>());
+            }
+
+            spriteSheet = spriteList.ToArray();
         }
+#endif
 
 
 
@@ -77,6 +86,10 @@ namespace Tiled.Builder {
 
                 Debug.Log("Rendering layer: " + layer.Name);
 
+                GameObject layergo = new GameObject();
+                layergo.transform.parent = this.transform;
+                layergo.name = layer.Name;
+
                 int x = 0, y = -map.Height;
 
                 foreach (int d in layer.Data) {
@@ -105,7 +118,7 @@ namespace Tiled.Builder {
                             }
                         }
 
-                        t.transform.parent = this.transform;
+                        t.transform.parent = layergo.transform;
                     }
 
                     x++;

@@ -29,7 +29,9 @@ public class Gun : MonoBehaviour
 			GetComponent<AudioSource>().Play();
 
             Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 dir = (target - transform.position).normalized;
+            Vector3 dir = target - transform.position;
+            dir.z = 0;
+            dir.Normalize();
 
             float angle = Mathf.Atan2(dir.y, dir.x) * 180 /3.14159f;
             Rigidbody2D bulletInstance = Instantiate(rocket, transform.position, Quaternion.Euler(new Vector3(0, 0, angle))) as Rigidbody2D;

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Tilemaps;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class JDRControl : MonoBehaviour {
 
