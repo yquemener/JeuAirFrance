@@ -23,6 +23,9 @@ namespace Tiled.Builder {
         [Tooltip("Prefab used for individual tiles")]
         public GameObject tilePrefab;
 
+        [Tooltip("Prefab used for layers parent object")]
+        public GameObject layerPrefab;
+
 
         public Map map;
         public Map Map { get { return map; } }
@@ -30,6 +33,8 @@ namespace Tiled.Builder {
         
         [Tooltip("Path to sprite used to create tiles")]
         public Texture2D[] tilesets;
+
+        public int[] StartingGID;
         public Sprite[] spriteSheet;
 
 #if UNITY_EDITOR
@@ -37,9 +42,13 @@ namespace Tiled.Builder {
         public void LoadTileset()
         {
             List<Sprite> spriteList = new List<Sprite>();
-            foreach (Texture2D tileset in tilesets)
+            for(int i=0;i<tilesets.Length;i++)
             {
-                string path = AssetDatabase.GetAssetPath(tileset);
+                while(spriteList.Count<StartingGID[i])
+                {
+                    spriteList.Add(null);
+                }
+                string path = AssetDatabase.GetAssetPath(tilesets[i]);
                 spriteList.AddRange(AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>());
             }
 
@@ -72,22 +81,18 @@ namespace Tiled.Builder {
         [ContextMenu("Create Tiles")]
         private void createTiles() {
 
-            if (map == null)
-            {
-                Debug.Log("Loading map data");
-                map = new TiledMapLoader(
-                    new JSONMapParser())
-                    .Load(mapJson);
+            Debug.Log("Loading map data");
+            map = new TiledMapLoader(
+                new JSONMapParser())
+                .Load(mapJson);
 
-                MapContainer.Map = map;
-            }
+            MapContainer.Map = map;
 
             foreach (Layer layer in map.Layers) {
 
                 Debug.Log("Rendering layer: " + layer.Name);
 
-                GameObject layergo = new GameObject();
-                layergo.transform.parent = this.transform;
+                GameObject layergo = (GameObject)GameObject.Instantiate(layerPrefab, transform);
                 layergo.name = layer.Name;
 
                 int x = 0, y = -map.Height;
@@ -103,22 +108,27 @@ namespace Tiled.Builder {
                             prefab = map.ObjectReferences[d];
                         }
 
-                        GameObject t = (GameObject)GameObject.Instantiate(
-                            prefab,
-                            new Vector3(x * tileSize.x, -y * tileSize.y, layer.Height),
-                            layer.Rotation);
+                        if (spriteSheet[d] != null)
+                        {
 
-                        t.name = x + ", " + y + ": " + tilePrefab.name;
+                            GameObject t = (GameObject)GameObject.Instantiate(
+                                prefab,
+                                Vector3.zero,
+                                layer.Rotation,
+                                layergo.transform);
+                            t.transform.localPosition = new Vector3(x * tileSize.x, -y * tileSize.y, layer.Height);
+                            t.name = x + ", " + y + ": " + tilePrefab.name;
 
-                        //  only set the custom tile if using the tile prefab
-                        if (prefab == tilePrefab) {
-                            SpriteRenderer renderer = t.GetComponentInChildren<SpriteRenderer>();
-                            if (renderer != null) {
-                                renderer.sprite = spriteSheet[d - 1];
+                            //  only set the custom tile if using the tile prefab
+                            if (prefab == tilePrefab)
+                            {
+                                SpriteRenderer renderer = t.GetComponentInChildren<SpriteRenderer>();
+                                if (renderer != null)
+                                {
+                                    renderer.sprite = spriteSheet[d];
+                                }
                             }
                         }
-
-                        t.transform.parent = layergo.transform;
                     }
 
                     x++;
