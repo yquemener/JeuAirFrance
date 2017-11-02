@@ -5,7 +5,8 @@ using UnityEngine;
 public class Healing : MonoBehaviour
 {
     public float speed; // Speed for full healing in seconds
-    public bool healing = true;
+
+    private bool healing = true;
 
     private GameObject player = null;
 

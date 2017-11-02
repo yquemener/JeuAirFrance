@@ -3,57 +3,54 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
-	public float moveSpeed = 2f;		// The speed the enemy moves at.
+	public float runSpeed = 2f;		    // The speed the enemy can move at.
 	public int HP = 2;					// How many times the enemy can be hit before it dies.
 	public Sprite deadEnemy;			// A sprite of the enemy when it's dead.
-	public Sprite damagedEnemy;			// An optional sprite of the enemy when it's damaged.
 	public AudioClip[] deathClips;		// An array of audioclips that can play when the enemy dies.
-	public GameObject hundredPointsUI;	// A prefab of 100 that appears when the enemy dies.
-	public float deathSpinMin = -100f;			// A value to give the minimum amount of Torque when dying
-	public float deathSpinMax = 100f;			// A value to give the maximum amount of Torque when dying
+    public float reaction_distance = 15.0f; // Distance at which the enemy reacts and moves toward the player
 
 
-	private SpriteRenderer ren;			// Reference to the sprite renderer.
+    private SpriteRenderer ren;			// Reference to the sprite renderer.
 	private Transform frontCheck;		// Reference to the position of the gameobject used for checking if something is in front.
 	private bool dead = false;			// Whether or not the enemy is dead.
 	private Score score;				// Reference to the Score script.
+    private GameObject hero;
+    private float moveSpeed = 0f;       // The speed the enemy currently moves at.
 
-	
-	void Awake()
+
+
+
+    void Awake()
 	{
 		// Setting up the references.
 		ren = transform.Find("body").GetComponent<SpriteRenderer>();
 		frontCheck = transform.Find("frontCheck").transform;
-		score = GameObject.Find("Score").GetComponent<Score>();
+        hero = Globals.inst().player;
 	}
 
 	void FixedUpdate ()
 	{
-		// Create an array of all the colliders in front of the enemy.
-		Collider2D[] frontHits = Physics2D.OverlapPointAll(frontCheck.position, 1);
+        // if there is a ground tile between the enemy and its frontcheck position, change direction
+        if (Physics2D.Linecast(transform.position, frontCheck.position, 1 << LayerMask.NameToLayer("Ground")))
+        {
+            Flip();
+        }
 
-		// Check each of the colliders.
-		foreach(Collider2D c in frontHits)
-		{
-			// If any of the colliders is an Obstacle...
-			if(c.tag == "Obstacle")
-			{
-				// ... Flip the enemy and stop checking the other colliders.
-				Flip ();
-				break;
-			}
-		}
+        // if there is a line of sight to the player
+        if  ((!Physics2D.Linecast(transform.position, hero.transform.position, 1 << LayerMask.NameToLayer("Ground"))) &&
+            ((transform.position - hero.transform.position).magnitude < reaction_distance))   // if the player is close to the enemy
+        {
+            // Then start running!
+            moveSpeed = runSpeed;
+            GetComponent<Animator>().SetTrigger("Run");
+        }
 
-		// Set the enemy's velocity to moveSpeed in the x direction.
-		GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);	
+        // Set the enemy's velocity to moveSpeed in the x direction.
+        GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
-		// If the enemy has one hit point left and has a damagedEnemy sprite...
-		if(HP == 1 && damagedEnemy != null)
-			// ... set the sprite renderer's sprite to be the damagedEnemy sprite.
-			ren.sprite = damagedEnemy;
-			
-		// If the enemy has zero or fewer hit points and isn't dead yet...
-		if(HP <= 0 && !dead)
+
+        // If the enemy has zero or fewer hit points and isn't dead yet...
+        if (HP <= 0 && !dead)
 			// ... call the death function.
 			Death ();
 	}
@@ -79,14 +76,9 @@ public class Enemy : MonoBehaviour
 		ren.enabled = true;
 		ren.sprite = deadEnemy;
 
-		// Increase the score by 100 points
-		score.score += 100;
-
 		// Set dead to true.
 		dead = true;
 
-		// Allow the enemy to rotate and spin it by adding a torque.
-		GetComponent<Rigidbody2D>().AddTorque(Random.Range(deathSpinMin,deathSpinMax));
 
 		// Find all of the colliders on the gameobject and set them all to be triggers.
 		Collider2D[] cols = GetComponents<Collider2D>();
@@ -98,14 +90,6 @@ public class Enemy : MonoBehaviour
 		// Play a random audioclip from the deathClips array.
 		int i = Random.Range(0, deathClips.Length);
 		AudioSource.PlayClipAtPoint(deathClips[i], transform.position);
-
-		// Create a vector that is just above the enemy.
-		Vector3 scorePos;
-		scorePos = transform.position;
-		scorePos.y += 1.5f;
-
-		// Instantiate the 100 points prefab at this point.
-		Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
 	}
 
 
